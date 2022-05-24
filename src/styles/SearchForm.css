@@ -2,7 +2,7 @@
     padding: 0
 }
 .form-container {
-    height: 40vh;
+    height: 45vh;
     background-color: #f9f9f9;
     padding: 2rem
 }
@@ -10,6 +10,25 @@
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+}
+
+.search-btn {
+    background-color: dodgerblue;
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    padding: 7px
+}
+.search-btn:active {
+    background-color: #1e90ff;
+    outline: none;
+    transform: scale(0.9);
+    box-shadow: 1px 1px 1px 1px rgb(205, 205, 205);
+    outline: none;
+}
+.search-label {
+    font-size: 27px;
+    font-weight: 300;
 }
 
 .sub-text {
