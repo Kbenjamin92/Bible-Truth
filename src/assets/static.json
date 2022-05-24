@@ -1,0 +1,12 @@
+[
+    {
+        "HOME_PAGE": {
+            "content": {
+                "header": "Truth App",
+                "mainSection": "Find the truth in the word of God!",
+                "searchButton": "Search" 
+            }
+        },
+        "RESULTS_PAGE": {}
+    }
+]
