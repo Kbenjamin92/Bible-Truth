@@ -18,7 +18,7 @@ const Fetch = () => {
     }
   
     useEffect(() => {
-      getBibleData();
+      // getBibleData();
     });
 
   return (

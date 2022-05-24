@@ -1,0 +1,9 @@
+.header-container {
+    padding: 1rem;
+    background-color: gold;
+}
+.header-content {
+    color: #000;
+    font-size: 45px;
+    font-weight: bold;
+}

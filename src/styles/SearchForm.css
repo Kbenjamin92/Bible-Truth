@@ -1,0 +1,22 @@
+.container {
+    padding: 0
+}
+.form-container {
+    height: 40vh;
+    background-color: #f9f9f9;
+    padding: 2rem
+}
+.search-operation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.sub-text {
+    margin-top: 15px;
+    text-align: start;
+}
+
+search-input-field {
+    margin-bottom: 10px
+}

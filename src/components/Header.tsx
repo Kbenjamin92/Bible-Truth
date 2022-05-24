@@ -1,12 +1,14 @@
 import React from "react";
+import '../styles/Header.css'
 import { pageHeader } from '../content'
 
 
 const Header = () => {
   return (
-    <div>
-        <h1>{pageHeader}</h1>
+    <div className="header-container">
+        <h1 className="header-content">{pageHeader}</h1>
     </div>
 )};
 
 export default Header;
+ 
