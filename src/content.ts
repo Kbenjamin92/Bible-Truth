@@ -4,8 +4,8 @@ export const pageHeader = staticContent.map(item => {
     return item.HOME_PAGE.content.headerText
 });
 
-export const mainContent = staticContent.map(item => {
-    return item.HOME_PAGE.content.mainSection
+export const searchHeader = staticContent.map(item => {
+    return item.HOME_PAGE.content.searchHeader
 });
 
 export const subText = staticContent.map(item => {

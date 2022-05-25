@@ -1,12 +1,11 @@
 import React from "react";
 import "../styles/SearchForm.css";
-import Fetch from "./Fetch";
 import Form from "react-bootstrap/Form";
-import { mainContent, subText, searchButton } from "../content";
+import { searchHeader, subText, searchButton } from "../content";
 
 type UserInput = {
   input: string;
-  handleChange: (e: React.ReactEventHandler) => void;
+  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleSubmit: (e: React.FormEvent<HTMLElement>) => void;
 };
 
@@ -20,7 +19,7 @@ const SearchForm: React.FC<UserInput> = (props) => {
     <div className='container' onSubmit={handleSubmit}>
       <Form className='form-container'>
         <Form.Group className='mb-3' controlId='formBasicEmail'>
-          <Form.Label className='search-label'>{mainContent}</Form.Label>
+          <Form.Label className='search-label'>{searchHeader}</Form.Label>
           <div className='search-operation'>
             <Form.Control
               name='input'
@@ -28,6 +27,7 @@ const SearchForm: React.FC<UserInput> = (props) => {
               className='search-input-field'
               placeholder='Search Scriptures...'
               onChange={handleChange}
+              value={input}
             />
             <button className='search-btn'>{searchButton}</button>
           </div>
@@ -36,10 +36,6 @@ const SearchForm: React.FC<UserInput> = (props) => {
           </div>
         </Form.Group>
       </Form>
-
-      <p>{input}</p>
-
-      <Fetch />
     </div>
   );
 };
