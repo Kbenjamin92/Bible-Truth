@@ -9,7 +9,6 @@ type DataFromAPI = {
 
 const DisplayContent: React.FC<DataFromAPI> = (props) => {
     const { bibleReference, bibleVerses } = props;
-    console.log(bibleReference, bibleVerses);
     return (
         <div>
             <Link to="/">
