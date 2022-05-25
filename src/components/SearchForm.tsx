@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/SearchForm.css";
 import Form from "react-bootstrap/Form";
 import { searchHeader, subText, searchButton } from "../content";
+import { Link } from "react-router-dom";
 
 type UserInput = {
   input: string;
@@ -30,7 +31,9 @@ const SearchForm: React.FC<UserInput> = (props) => {
               value={input}
               required
             />
-            <button className='search-btn'>{searchButton}</button>
+            <Link to="/bible-results">
+              <button className='search-btn'>{searchButton}</button>
+            </Link>
           </div>
           <div className='sub-text'>
             <Form.Text className='text-muted'>{subText}</Form.Text>

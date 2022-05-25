@@ -8,6 +8,10 @@
                 "searchButton": "Search" 
             }
         },
-        "RESULTS_PAGE": {}
+        "RESULTS_PAGE": {
+            "content": {
+                "returnHomeButton": "Return To Home Page"
+            }
+        }
     }
 ]

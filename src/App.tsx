@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Header from "./components/Header";
 import SearchForm from "./components/SearchForm";
+import DisplayContent from "./components/DisplayContent"
 import axios from "axios";
 import { Routes, Route } from "react-router-dom";
 
@@ -52,7 +53,7 @@ const App = () => {
         <Route path='/bible-results' element={
           <div>
             <Header />
-            <h1>New Page</h1>
+            <DisplayContent renderContent={bibleVerses}/>
           </div>
         }>
         </Route>

@@ -15,3 +15,7 @@ export const subText = staticContent.map(item => {
 export const searchButton = staticContent.map(item => {
     return item.HOME_PAGE.content.searchButton
 });
+
+export const returnHomeButton = staticContent.map(item => {
+    return item.RESULTS_PAGE.content.returnHomeButton
+});
