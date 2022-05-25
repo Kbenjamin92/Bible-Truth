@@ -28,6 +28,7 @@ const SearchForm: React.FC<UserInput> = (props) => {
               placeholder='Search Scriptures...'
               onChange={handleChange}
               value={input}
+              required
             />
             <button className='search-btn'>{searchButton}</button>
           </div>
