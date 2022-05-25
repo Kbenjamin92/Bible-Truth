@@ -9,15 +9,16 @@ import { Routes, Route } from "react-router-dom";
 
 const App = () => {
   const [userInput, setUserInput] = useState<string>("");
-  const [userOutput, setUserOutput] = useState<string>("");
+  const [bibleReference, setBibleReference] = useState<string>("");
   const [bibleVerses, setBibleVerses] = useState<string>("");
 
   const getBibleData = async (userSearchTerm: string) => {
     let url = `https://bible-api.com/${userSearchTerm}`;
     try {
       const req = await axios.get(url);
-      const res = req.data.text;
-      setBibleVerses(res);
+      const res = req.data;
+      setBibleReference(res.reference);
+      setBibleVerses(res.text);
     } catch (error) {
       console.log(error);
     }
@@ -29,8 +30,8 @@ const App = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLElement>) => {
     e.preventDefault();
-    setUserOutput(userInput);
-    getBibleData(userInput);
+    let connectVerseString = userInput.split(' ').join('');
+    getBibleData(connectVerseString);
     setUserInput("");
   };
 
@@ -53,7 +54,7 @@ const App = () => {
         <Route path='/bible-results' element={
           <div>
             <Header />
-            <DisplayContent renderContent={bibleVerses}/>
+            <DisplayContent bibleReference={bibleReference} bibleVerses={bibleVerses}/>
           </div>
         }>
         </Route>

@@ -10,7 +10,7 @@
         },
         "RESULTS_PAGE": {
             "content": {
-                "returnHomeButton": "Return To Home Page"
+                "returnHomeButton": "Return Home"
             }
         }
     }

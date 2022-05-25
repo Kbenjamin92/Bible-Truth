@@ -11,10 +11,7 @@ type UserInput = {
 };
 
 const SearchForm: React.FC<UserInput> = (props) => {
-  const { 
-    input, 
-    handleChange, 
-    handleSubmit } = props;
+  const { input, handleChange, handleSubmit } = props;
 
   return (
     <div className='container' onSubmit={handleSubmit}>
@@ -31,7 +28,7 @@ const SearchForm: React.FC<UserInput> = (props) => {
               value={input}
               required
             />
-            <Link to="/bible-results">
+            <Link to='/bible-results'>
               <button className='search-btn'>{searchButton}</button>
             </Link>
           </div>
