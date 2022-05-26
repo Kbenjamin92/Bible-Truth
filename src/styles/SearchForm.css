@@ -17,10 +17,10 @@
     color: white;
     border: 1px solid transparent;
     border-radius: 5px;
-    padding: 7px
+    padding: 7px;
+    text-decoration: none;
 }
 .search-btn:active {
-    background-color: #1e90ff;
     outline: none;
     transform: scale(0.9);
     box-shadow: 1px 6px 20px 5px rgba(0,0,0,0.16);

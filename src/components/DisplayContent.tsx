@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { returnHomeButton } from "../content";
 
@@ -7,8 +7,8 @@ type DataFromAPI = {
     bibleVerses: string;
 }
 
-const DisplayContent: React.FC<DataFromAPI> = (props) => {
-    const { bibleReference, bibleVerses } = props;
+const DisplayContent: React.FC<DataFromAPI> = ({ bibleReference, bibleVerses }) => {
+    
     return (
         <div>
             <Link to="/">

@@ -5,12 +5,14 @@ import Header from "./components/Header";
 import SearchForm from "./components/SearchForm";
 import DisplayContent from "./components/DisplayContent"
 import axios from "axios";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 
 const App = () => {
   const [userInput, setUserInput] = useState<string>("");
   const [bibleReference, setBibleReference] = useState<string>("");
   const [bibleVerses, setBibleVerses] = useState<string>("");
+
+  let navigate = useNavigate();
 
   const getBibleData = async (userSearchTerm: string) => {
     let url = `https://bible-api.com/${userSearchTerm}`;
@@ -23,7 +25,7 @@ const App = () => {
       console.log(error);
     }
   };
-
+  
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUserInput(e.target.value);
   };
@@ -33,8 +35,10 @@ const App = () => {
     let connectVerseString = userInput.split(' ').join('');
     getBibleData(connectVerseString);
     setUserInput("");
+    navigate('/bible-results');
   };
-
+  
+  
   return (
     <div className='App'>
       <Routes>
