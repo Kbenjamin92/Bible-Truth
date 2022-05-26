@@ -19,3 +19,7 @@ export const searchButton = staticContent.map(item => {
 export const returnHomeButton = staticContent.map(item => {
     return item.RESULTS_PAGE.content.returnHomeButton
 });
+
+export const userErrorMessage = staticContent.map(item => {
+    return item.HOME_PAGE.content.userErrorMessage
+});

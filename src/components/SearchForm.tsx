@@ -7,9 +7,14 @@ type UserInput = {
   input: string;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleSubmit: (e: React.FormEvent<HTMLElement>) => void;
+  userErrorMessage: string[];
 };
 
-const SearchForm: React.FC<UserInput> = ({ input, handleChange, handleSubmit }) => {
+const SearchForm: React.FC<UserInput> = ({ 
+  input, 
+  handleChange, 
+  handleSubmit, 
+  userErrorMessage }) => {
 
   return (
     <div className='container'>
@@ -31,6 +36,7 @@ const SearchForm: React.FC<UserInput> = ({ input, handleChange, handleSubmit }) 
             </button>
           </div>
           <div className='sub-text'>
+            <p className='error-message'>{userErrorMessage}</p>
             <Form.Text className='text-muted'>{subText}</Form.Text>
           </div>
         </Form.Group>

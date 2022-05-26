@@ -4,6 +4,7 @@ import "./App.css";
 import Header from "./components/Header";
 import SearchForm from "./components/SearchForm";
 import DisplayContent from "./components/DisplayContent"
+import { userErrorMessage } from './content'
 import axios from "axios";
 import { Routes, Route, useNavigate } from "react-router-dom";
 
@@ -11,6 +12,7 @@ const App = () => {
   const [userInput, setUserInput] = useState<string>("");
   const [bibleReference, setBibleReference] = useState<string>("");
   const [bibleVerses, setBibleVerses] = useState<string>("");
+  const [badSearchReq, setBadSearchReq] = useState<string[]>([]);
 
   let navigate = useNavigate();
 
@@ -22,7 +24,10 @@ const App = () => {
       setBibleReference(res.reference);
       setBibleVerses(res.text);
     } catch (error) {
-      console.log(error);
+        if (error) {
+          navigate('/');
+          setBadSearchReq(userErrorMessage);
+        }
     }
   };
   
@@ -36,6 +41,7 @@ const App = () => {
     getBibleData(connectVerseString);
     setUserInput("");
     navigate('/bible-results');
+    setBadSearchReq([]);
   };
   
   
@@ -51,6 +57,7 @@ const App = () => {
                 input={userInput}
                 handleChange={handleChange}
                 handleSubmit={handleSubmit}
+                userErrorMessage={badSearchReq}
               />
             </div>
           }></Route>
