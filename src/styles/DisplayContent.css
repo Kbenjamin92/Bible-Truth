@@ -1,0 +1,10 @@
+.bible-verse-container {
+  border: solid 1px #ccc;
+  border-radius: 5px;
+  margin: 2rem 2rem;
+  padding: 1rem 1rem;
+}
+
+.bible-verse {
+    text-align: start;
+}

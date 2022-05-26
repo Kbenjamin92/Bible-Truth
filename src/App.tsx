@@ -15,6 +15,7 @@ const App = () => {
   const [badSearchReq, setBadSearchReq] = useState<string[]>([]);
 
   let navigate = useNavigate();
+  let connectVerseString = userInput.split(' ').join('');
 
   const getBibleData = async (userSearchTerm: string) => {
     let url = `https://bible-api.com/${userSearchTerm}`;
@@ -37,7 +38,6 @@ const App = () => {
 
   const handleSubmit = (e: React.FormEvent<HTMLElement>) => {
     e.preventDefault();
-    let connectVerseString = userInput.split(' ').join('');
     getBibleData(connectVerseString);
     setUserInput("");
     navigate('/bible-results');
