@@ -17,6 +17,8 @@ const App = () => {
   let navigate = useNavigate();
   let connectVerseString = userInput.split(' ').join('');
 
+
+  // add the the bible verses number to the bible verses.
   const getBibleData = async (userSearchTerm: string) => {
     let url = `https://bible-api.com/${userSearchTerm}`;
     try {
@@ -29,7 +31,7 @@ const App = () => {
           navigate('/');
           setBadSearchReq(userErrorMessage);
         }
-    }
+     }
   };
   
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
