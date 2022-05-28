@@ -1,6 +1,6 @@
 import React from "react";
-import '../styles/Header.css';
-import { pageHeader } from '../content';
+import '../../styles/Header.css'
+import { pageHeader } from '../../content';
 import { Link } from 'react-router-dom';
 
 type NavigationInput = {
@@ -13,12 +13,14 @@ const Navigation: React.FC<NavigationInput> = ({ toggleHamburger }) => {
         <div>
           <h1 className="header-content">{pageHeader}</h1>
         </div>
-
-          <div className="hamburger-container" onClick={() => toggleHamburger()}>
-            <div className="hamburger-border"></div>
-            <div className="hamburger-border"></div>
-            <div className="hamburger-border"></div>
+        <button className="hamburger-container" onClick={() => toggleHamburger()}>
+          <div>
+            <div className="hamburger-border borderOne"></div>
+            <div className="hamburger-border borderTwo"></div>
+            <div className="hamburger-border borderThree"></div>
           </div>
+        </button>
+          
 
         <ul className="nav-list-container">
           <Link to="/about" className="nav-item">

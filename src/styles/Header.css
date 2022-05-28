@@ -13,14 +13,40 @@
 } 
 
 .hamburger-container {
-    width: 35px;
-    margin-top: 0.8rem;
+    background-color: transparent;
+    border: transparent;
+    width: 43px;
+}
+.hamburger-container:hover {
+    background-color: #0c0c0c;
+    border: transparent;
+    width: 43px;
+}
+
+.hamburger-container:active {
+    background-color: #0c0c0c;
+    border: transparent;
+    transform: scale(0.9);
+    width: 43px;
 } 
 
 .hamburger-border {
     border-top: 2px solid white;
     padding-top: 5px;
 }
+.borderOne:active {
+    border-top: 2px solid white;
+    padding-top: 5px;
+    transform: rotate(50deg);
+}
+
+/* finish working on the hamburger menu */
+
+/* .borderTwo:active {
+    border-top: 2px solid white;
+    padding-top: 5px;
+    transform: rotate(360deg);
+} */
 
 .nav-list-container {
     display: none;
