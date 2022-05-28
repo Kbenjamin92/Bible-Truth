@@ -8,20 +8,20 @@ type NavigationInput = {
 }
 
 const Navigation: React.FC<NavigationInput> = ({ toggleHamburger }) => {
+
   return (
       <div  className="header-container">
         <div>
           <h1 className="header-content">{pageHeader}</h1>
         </div>
         <button className="hamburger-container" onClick={() => toggleHamburger()}>
-          <div>
+          <div className="hamburger-child">
             <div className="hamburger-border borderOne"></div>
             <div className="hamburger-border borderTwo"></div>
             <div className="hamburger-border borderThree"></div>
           </div>
         </button>
           
-
         <ul className="nav-list-container">
           <Link to="/about" className="nav-item">
             <li>About</li>
