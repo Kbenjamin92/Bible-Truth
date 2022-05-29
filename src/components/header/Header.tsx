@@ -6,13 +6,13 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const toggleHamburger = () => {
-    setIsOpen(prevState => !prevState);
+    setIsOpen((prevState) => !prevState);
     console.log(isOpen);
   }
 
   return (
     <div>
-        <Navigation toggleHamburger={toggleHamburger}/>
+        <Navigation toggleHamburger={toggleHamburger} checkToggle={isOpen}/>
     </div>
 )};
 
