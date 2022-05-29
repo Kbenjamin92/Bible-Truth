@@ -21,7 +21,7 @@ const Navigation: React.FC<NavigationInput> = ({
             <li>About</li>
           </Link>
           <Link to="/contact" className="open-nav-item" onClick={closeDropDown}>
-            <li>Content</li>
+            <li>Contact</li>
           </Link>
         </ul>
     </div>
