@@ -16,8 +16,8 @@ export const searchButton = staticContent.map(item => {
     return item.HOME_PAGE.content.searchButton
 });
 
-export const returnHomeButton = staticContent.map(item => {
-    return item.RESULTS_PAGE.content.returnHomeButton
+export const scripturePage = staticContent.map(item => {
+    return item.RESULTS_PAGE.content.scripturePage
 });
 
 export const userErrorMessage = staticContent.map(item => {

@@ -1,7 +1,7 @@
 import React from "react";
 import '../styles/DisplayContent.css'
 import { Link } from "react-router-dom";
-import { returnHomeButton } from "../content";
+import { scripturePage } from "../content";
 
 type DataFromAPI = {
     bibleReference: string;
@@ -20,9 +20,10 @@ const DisplayContent: React.FC<DataFromAPI> = ({ bibleReference, bibleVerses }) 
 
     return (
         <div>
-            <Link to="/">
-                <button className='search-btn'>{returnHomeButton}</button>
-            </Link>
+            <section className="scripture-page-title-container">
+                <h1 className="scripture-page-title">{scripturePage}</h1>
+                <hr />
+            </section>
             {bibleReference && bibleVerses && scripture}
         </div>
 )};

@@ -10,7 +10,7 @@ type UserInput = {
   userErrorMessage: string[];
 };
 
-const SearchForm: React.FC<UserInput> = ({ 
+const Main: React.FC<UserInput> = ({ 
   input, 
   handleChange, 
   handleSubmit, 
@@ -45,4 +45,4 @@ const SearchForm: React.FC<UserInput> = ({
   );
 };
 
-export default SearchForm;
+export default Main;
