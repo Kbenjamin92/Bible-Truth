@@ -7,12 +7,19 @@ const Header = () => {
 
   const toggleHamburger = () => {
     setIsOpen((prevState) => !prevState);
-    console.log(isOpen);
+  }
+
+  const closeDropDown = () => {
+    setIsOpen(false);
   }
 
   return (
     <div>
-        <Navigation toggleHamburger={toggleHamburger} checkToggle={isOpen}/>
+        <Navigation 
+          toggleHamburger={toggleHamburger} 
+          checkToggle={isOpen}
+          closeDropDown={closeDropDown}
+        />
     </div>
 )};
 

@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Header from "./components/header/Header";
-import SearchForm from "./components/SearchForm";
+import Main from "./components/Main";
 import DisplayContent from "./components/DisplayContent"
+import About from './components/About'
+import Contact from './components/Contact'
 import { userErrorMessage } from './content'
 import axios from "axios";
 import { Routes, Route, useNavigate } from "react-router-dom";
@@ -55,7 +57,7 @@ const App = () => {
           element={
             <div>
               <Header />
-              <SearchForm
+              <Main
                 input={userInput}
                 handleChange={handleChange}
                 handleSubmit={handleSubmit}
@@ -68,6 +70,20 @@ const App = () => {
           <div>
             <Header />
             <DisplayContent bibleReference={bibleReference} bibleVerses={bibleVerses}/>
+          </div>
+        }>
+        </Route>
+        <Route path='/about' element={
+          <div>
+            <Header />
+            <About />
+          </div>
+        }>
+        </Route>
+        <Route path='/contact' element={
+          <div>
+            <Header />
+            <Contact />
           </div>
         }>
         </Route>
