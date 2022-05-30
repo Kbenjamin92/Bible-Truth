@@ -1,5 +1,5 @@
 .bible-verse-container {
-  border: solid 1px #ccc;
+  border: solid 1px transparent;
   border-radius: 5px;
   margin: 2rem 2rem;
   padding: 1rem 1rem;
@@ -7,7 +7,7 @@
 }
 
 .bible-verse-container:hover {
-  border: solid 1px #ccc;
+  border: solid 1px transparent;
   border-radius: 5px;
   margin: 2rem 2rem;
   padding: 1rem 1rem;

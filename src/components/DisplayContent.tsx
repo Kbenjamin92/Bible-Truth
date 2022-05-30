@@ -1,6 +1,5 @@
 import React from "react";
 import '../styles/DisplayContent.css'
-import { Link } from "react-router-dom";
 import { scripturePage } from "../content";
 
 type DataFromAPI = {

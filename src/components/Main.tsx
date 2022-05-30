@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/SearchForm.css";
+import "../styles/Main.css";
 import Form from "react-bootstrap/Form";
 import { searchHeader, subText, searchButton } from "../content";
 
@@ -18,9 +18,14 @@ const Main: React.FC<UserInput> = ({
 
   return (
     <div className='container'>
+      <section className="header-title-container">
+        <h1 className='header-title'>{searchHeader}</h1>  
+        <hr />
+      </section>
+
       <Form className='form-container' onSubmit={handleSubmit}>
         <Form.Group className='mb-3' controlId='formBasicEmail'>
-          <Form.Label className='search-label'>{searchHeader}</Form.Label>
+          <Form.Label ></Form.Label>
           <div className='search-operation'>
             <Form.Control
               name='input'
