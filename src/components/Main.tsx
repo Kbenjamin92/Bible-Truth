@@ -25,7 +25,6 @@ const Main: React.FC<UserInput> = ({
 
       <Form className='form-container' onSubmit={handleSubmit}>
         <Form.Group className='mb-3' controlId='formBasicEmail'>
-          <Form.Label ></Form.Label>
           <div className='search-operation'>
             <Form.Control
               name='input'
