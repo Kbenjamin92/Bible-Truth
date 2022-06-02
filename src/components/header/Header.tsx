@@ -14,13 +14,13 @@ const Header = () => {
   }
 
   return (
-    <div>
+    <>
         <Navigation 
           toggleHamburger={toggleHamburger} 
           checkToggle={isOpen}
           closeDropDown={closeDropDown}
         />
-    </div>
+    </>
 )};
 
 export default Header;

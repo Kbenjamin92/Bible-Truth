@@ -18,13 +18,13 @@ const DisplayContent: React.FC<DataFromAPI> = ({ bibleReference, bibleVerses }) 
     );
 
     return (
-        <div>
+        <>
             <section className="scripture-page-title-container">
                 <h1 className="scripture-page-title">{scripturePage}</h1>
                 <hr />
             </section>
             {bibleReference && bibleVerses && scripture}
-        </div>
+        </>
 )};
 
 export default DisplayContent;
