@@ -26,7 +26,6 @@ const Navigation: React.FC<NavigationInput> = ({
         </ul>
     </div>
   );
-
   const horizontalNavList: JSX.Element = (
     <ul className="nav-list-container">
       <Link to="/about" className="nav-item">
@@ -38,7 +37,6 @@ const Navigation: React.FC<NavigationInput> = ({
       </Link>
     </ul>
   );
-  
   return (
       <div  className="header-container">
         <div>

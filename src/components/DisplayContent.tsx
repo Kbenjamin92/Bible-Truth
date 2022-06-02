@@ -8,7 +8,6 @@ type DataFromAPI = {
 }
 
 const DisplayContent: React.FC<DataFromAPI> = ({ bibleReference, bibleVerses }) => {
-    
     let scripture: JSX.Element = (
         <div className="bible-verse-container">   
             <h2>{bibleReference}</h2>
@@ -16,7 +15,6 @@ const DisplayContent: React.FC<DataFromAPI> = ({ bibleReference, bibleVerses }) 
             <p className="bible-verse">{bibleVerses}</p>
         </div> 
     );
-
     return (
         <>
             <section className="scripture-page-title-container">

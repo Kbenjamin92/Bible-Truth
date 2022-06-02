@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Navigation from './Navigation'
 
 const Header = () => {
-
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const toggleHamburger = () => {
