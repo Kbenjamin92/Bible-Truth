@@ -14,8 +14,10 @@ const Navigation: React.FC<NavigationInput> = ({
     checkToggle,
     closeDropDown }) => {
 
+  let isDropDownOpen = checkToggle ? 'open-hamburger' : 'close-hamburger';
+
   const openHamburgerMenu: JSX.Element = (
-    <div className="open-hamburger"> 
+    <div className={isDropDownOpen}> 
        <ul className="open-nav-list-container">
           <Link to="/about" className="open-nav-item" onClick={closeDropDown}>
             <li>About</li>
@@ -26,17 +28,22 @@ const Navigation: React.FC<NavigationInput> = ({
         </ul>
     </div>
   );
-  const horizontalNavList: JSX.Element = (
-    <ul className="nav-list-container">
-      <Link to="/about" className="nav-item">
-        <li>About</li>
-      </Link>
-      <hr />
-      <Link to="/contact" className="nav-item">
-        <li>Content</li>
-      </Link>
-    </ul>
-  );
+
+// fix the drop down menu when the screen is larger
+
+
+
+  // const horizontalNavList: JSX.Element = (
+  //   <ul className="nav-list-container">
+  //     <Link to="/about" className="nav-item">
+  //       <li>About</li>
+  //     </Link>
+  //     <hr />
+  //     <Link to="/contact" className="nav-item">
+  //       <li>Content</li>
+  //     </Link>
+  //   </ul>
+  // );
   return (
       <div  className="header-container">
         <div>
@@ -51,9 +58,9 @@ const Navigation: React.FC<NavigationInput> = ({
             <div className="hamburger-border borderThree"></div>
           </div>
         </button>
-
-        {checkToggle && openHamburgerMenu}
-        {horizontalNavList}
+        <div>{openHamburgerMenu}</div>
+        
+        {/* {horizontalNavList} */}
       </div>
   )};
 
