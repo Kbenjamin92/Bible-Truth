@@ -7,17 +7,20 @@ type NavigationInput = {
   toggleHamburger: () => void;
   checkToggle: boolean;
   closeDropDown: () => void;
+  // reference: any
 }
 
 const Navigation: React.FC<NavigationInput> = ({ 
     toggleHamburger, 
     checkToggle,
-    closeDropDown }) => {
+    closeDropDown,
+     }) => {
 
-  let isDropDownOpen = checkToggle ? 'open-hamburger' : 'close-hamburger';
+
+  let navLinks = checkToggle ? 'open-hamburger-container ' : 'close-hamburger-container';
 
   const openHamburgerMenu: JSX.Element = (
-    <div className={isDropDownOpen}> 
+    <div className={navLinks}> 
        <ul className="open-nav-list-container">
           <Link to="/about" className="open-nav-item" onClick={closeDropDown}>
             <li>About</li>
@@ -29,21 +32,13 @@ const Navigation: React.FC<NavigationInput> = ({
     </div>
   );
 
-// fix the drop down menu when the screen is larger
+/*
+- when the screen passes 768 the drop down container needs to a second item in the header container
+
+- how do I determine when the nav links show up on the nav bar
+*/
 
 
-
-  // const horizontalNavList: JSX.Element = (
-  //   <ul className="nav-list-container">
-  //     <Link to="/about" className="nav-item">
-  //       <li>About</li>
-  //     </Link>
-  //     <hr />
-  //     <Link to="/contact" className="nav-item">
-  //       <li>Content</li>
-  //     </Link>
-  //   </ul>
-  // );
   return (
       <div  className="header-container">
         <div>
@@ -58,9 +53,8 @@ const Navigation: React.FC<NavigationInput> = ({
             <div className="hamburger-border borderThree"></div>
           </div>
         </button>
-        <div>{openHamburgerMenu}</div>
+        {openHamburgerMenu}
         
-        {/* {horizontalNavList} */}
       </div>
   )};
 

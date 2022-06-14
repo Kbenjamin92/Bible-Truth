@@ -23,7 +23,7 @@
 .search-btn:active {
     outline: none;
     transform: scale(0.9);
-    box-shadow: 1px 6px 20px 5px rgba(0,0,0,0.16);
+    box-shadow: 1px 6px 20px 5px rgba(0,0,0,0.10);
     outline: none;
 }
 .header-title-container {
