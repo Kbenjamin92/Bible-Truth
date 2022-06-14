@@ -7,7 +7,6 @@ type NavigationInput = {
   toggleHamburger: () => void;
   checkToggle: boolean;
   closeDropDown: () => void;
-  // reference: any
 }
 
 const Navigation: React.FC<NavigationInput> = ({ 
@@ -32,13 +31,6 @@ const Navigation: React.FC<NavigationInput> = ({
     </div>
   );
 
-/*
-- when the screen passes 768 the drop down container needs to a second item in the header container
-
-- how do I determine when the nav links show up on the nav bar
-*/
-
-
   return (
       <div  className="header-container">
         <div>
@@ -54,7 +46,6 @@ const Navigation: React.FC<NavigationInput> = ({
           </div>
         </button>
         {openHamburgerMenu}
-        
       </div>
   )};
 
