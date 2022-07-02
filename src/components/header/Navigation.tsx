@@ -15,7 +15,6 @@ const Navigation: React.FC<NavigationInput> = ({
     closeDropDown,
      }) => {
 
-
   let navLinks = checkToggle ? 'open-hamburger-container ' : 'close-hamburger-container';
 
   const openHamburgerMenu: JSX.Element = (
@@ -30,7 +29,6 @@ const Navigation: React.FC<NavigationInput> = ({
         </ul>
     </div>
   );
-
   return (
       <div  className="header-container">
         <div>

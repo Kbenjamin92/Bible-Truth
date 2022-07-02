@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/Main.css";
 import Form from "react-bootstrap/Form";
 import { searchHeader, subText, searchButton } from "../content";
+import bibleImage from '../icons/bible.png';
 
 type UserInput = {
   input: string;
@@ -21,6 +22,9 @@ const Main: React.FC<UserInput> = ({
       <section className="header-title-container">
         <h1 className='header-title'>{searchHeader}</h1>  
         <hr />
+      </section>
+      <section>
+        <img src={bibleImage} alt='bible'/>
       </section>
 
       <Form className='form-container' onSubmit={handleSubmit}>
