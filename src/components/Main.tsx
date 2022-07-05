@@ -19,13 +19,16 @@ const Main: React.FC<UserInput> = ({
 
   return (
     <div className='container'>
-      <section className="header-title-container">
-        <h1 className='header-title'>{searchHeader}</h1>  
-        <hr />
-      </section>
-      <section>
-        <img src={bibleImage} alt='bible'/>
-      </section>
+      <div className="header-display-container">
+        <section className="header-title-container">
+          <h1 className='header-title'>{searchHeader}</h1>  
+          <hr />
+        </section>
+        <section>
+          <img src={bibleImage} alt='bible' className="header-image"/>
+        </section>
+      </div>
+      
 
       <Form className='form-container' onSubmit={handleSubmit}>
         <Form.Group className='mb-3' controlId='formBasicEmail'>
