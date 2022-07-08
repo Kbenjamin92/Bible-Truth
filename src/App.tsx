@@ -13,21 +13,19 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 const App = () => {
   const [userInput, setUserInput] = useState<string>("");
   const [bibleReference, setBibleReference] = useState<string>("");
-  const [bibleVerses, setBibleVerses] = useState<string>("");
+  const [bibleVerse, setBibleVerse] = useState<any[]>([]);
   const [badSearchReq, setBadSearchReq] = useState<string[]>([]);
 
   let navigate = useNavigate();
   let connectVerseString = userInput.split(' ').join('');
 
-
-  // add the the bible verses number to the bible verses.
   const getBibleData = async (userSearchTerm: string) => {
     let url = `https://bible-api.com/${userSearchTerm}`;
     try {
       const req = await axios.get(url);
       const res = req.data;
       setBibleReference(res.reference);
-      setBibleVerses(res.text);
+      setBibleVerse(res.verses);
     } catch (error) {
         if (error) {
           navigate('/');
@@ -69,7 +67,10 @@ const App = () => {
         <Route path='/bible-results' element={
           <div>
             <Header />
-            <DisplayContent bibleReference={bibleReference} bibleVerses={bibleVerses}/>
+            <DisplayContent 
+              bibleReference={bibleReference} 
+              bibleVerse={bibleVerse}
+              />
           </div>
         }>
         </Route>

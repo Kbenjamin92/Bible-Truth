@@ -4,24 +4,33 @@ import { scripturePage } from "../content";
 
 type DataFromAPI = {
     bibleReference: string;
-    bibleVerses: string;
+    bibleVerse: any[];
 }
 
-const DisplayContent: React.FC<DataFromAPI> = ({ bibleReference, bibleVerses }) => {
-    let scripture: JSX.Element = (
-        <div className="bible-verse-container">   
-            <h2>{bibleReference}</h2>
-            <hr />
-            <p className="bible-verse">{bibleVerses}</p>
-        </div> 
-    );
+const DisplayContent: React.FC<DataFromAPI> = ({ 
+        bibleReference, 
+        bibleVerse
+     }) => {
+    
+    const bibleVerses = bibleVerse.map((item, keys) => {
+        // fix <p> alignment for the verses
+        return (
+            <div key={keys}>
+               <p className="bible-text"><span className='bible-verse-number'>{item.verse}</span> {item.text}</p>
+            </div>
+        )
+    });
     return (
         <>
             <section className="scripture-page-title-container">
                 <h1 className="scripture-page-title">{scripturePage}</h1>
                 <hr />
             </section>
-            {bibleReference && bibleVerses && scripture}
+            <section className="bible-verse-container">
+                <h2>{bibleReference}</h2>
+                {bibleVerses}
+            </section>
+           
         </>
 )};
 
