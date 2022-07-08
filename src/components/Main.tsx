@@ -22,7 +22,6 @@ const Main: React.FC<UserInput> = ({
       <div className="header-display-container">
         <section className="header-title-container">
           <h1 className='header-title'>{searchHeader}</h1>  
-          <hr />
         </section>
         <section>
           <img src={bibleImage} alt='bible' className="header-image"/>
