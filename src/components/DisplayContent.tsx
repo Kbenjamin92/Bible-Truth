@@ -5,11 +5,13 @@ import { scripturePage } from "../content";
 type DataFromAPI = {
     bibleReference: string;
     bibleVerse: any[];
+    searchComponent: any;
 }
 
 const DisplayContent: React.FC<DataFromAPI> = ({ 
         bibleReference, 
-        bibleVerse
+        bibleVerse,
+        searchComponent
      }) => {
     
     const bibleVerses = bibleVerse.map((item, keys) => {
@@ -22,6 +24,7 @@ const DisplayContent: React.FC<DataFromAPI> = ({
     });
     return (
         <>
+            { searchComponent }
             <section className="scripture-page-title-container">
                 <h1 className="scripture-page-title">{scripturePage}</h1>
                 <hr />
@@ -30,7 +33,6 @@ const DisplayContent: React.FC<DataFromAPI> = ({
                 <h2>{bibleReference}</h2>
                 {bibleVerses}
             </section>
-           
         </>
 )};
 

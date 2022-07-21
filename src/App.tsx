@@ -6,6 +6,7 @@ import Main from "./components/Main";
 import DisplayContent from "./components/DisplayContent"
 import About from './components/About'
 import Contact from './components/Contact'
+import Search from './components/Search'
 import { userErrorMessage } from './content'
 import axios from "axios";
 import { Routes, Route, useNavigate } from "react-router-dom";
@@ -46,7 +47,6 @@ const App = () => {
     setBadSearchReq([]);
   };
   
-  
   return (
     <div className='App'>
       <Routes>
@@ -55,12 +55,14 @@ const App = () => {
           element={
             <div>
               <Header />
-              <Main
-                input={userInput}
-                handleChange={handleChange}
-                handleSubmit={handleSubmit}
-                userErrorMessage={badSearchReq}
-              />
+              <Main searchComponent={
+                <Search 
+                  input={userInput}
+                  handleChange={handleChange}
+                  handleSubmit={handleSubmit}
+                  userErrorMessage={badSearchReq}
+                  />} 
+                />
             </div>
           }></Route>
 
@@ -70,6 +72,13 @@ const App = () => {
             <DisplayContent 
               bibleReference={bibleReference} 
               bibleVerse={bibleVerse}
+              searchComponent={
+                <Search 
+                  input={userInput}
+                  handleChange={handleChange}
+                  handleSubmit={handleSubmit}
+                  userErrorMessage={badSearchReq}
+                  />} 
               />
           </div>
         }>
