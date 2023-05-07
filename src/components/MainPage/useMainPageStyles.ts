@@ -2,7 +2,7 @@ import { createUseStyles } from 'react-jss';
 
 export const useMainPageStyles = createUseStyles({
     container: {
-        margin: "5rem",
+        margin: "0rem",
     },
     headerDisplayContainer: {
         display: 'flex',
@@ -11,7 +11,7 @@ export const useMainPageStyles = createUseStyles({
     },
     headerTitle: {
         fontWeight: 'bold',
-        fontSize: '1rem',
+        fontSize: '2rem',
         textAlign: 'start',
     },
     headerTitleContainer: {
