@@ -1,19 +1,19 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
-import { subText, searchButton } from "../content";
+import { dictionary } from "../dictionary";
 
-type UserInput = {
+interface UserInput {
     input: string;
     handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
     handleSubmit: (e: React.FormEvent<HTMLElement>) => void;
-    userErrorMessage: string[];
+    badSearchReq: string;
   };
 
-const Search: React.FC<UserInput> = ({
+export const Search: React.FC<UserInput> = ({
   input, 
   handleChange, 
   handleSubmit, 
-  userErrorMessage
+  badSearchReq
 }) => {
   return (
     <div>
@@ -30,16 +30,14 @@ const Search: React.FC<UserInput> = ({
               required
             />
             <button className='search-btn'>
-              {searchButton}
+              {dictionary.SEARCH_BUTTON_TEXT}
             </button>
           </div>
           <div className='sub-text'>
-            <p className='error-message'>{userErrorMessage}</p>
-            <Form.Text className='text-muted'>{subText}</Form.Text>
+            <p className='error-message'>{badSearchReq}</p>
+            <Form.Text className='text-muted'>{dictionary.SUB_TITLE_SCRIPTURE}</Form.Text>
           </div>
         </Form.Group>
       </Form>
     </div>
   )};
-
-export default Search;

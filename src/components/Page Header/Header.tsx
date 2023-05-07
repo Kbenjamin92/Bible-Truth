@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Navigation from './Navigation'
+import { Navigation } from './Navigation'
 
-const Header = () => {
+export const Header = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const toggleHamburger = () => {
@@ -20,6 +20,4 @@ const Header = () => {
         />
     </>
 )};
-
-export default Header;
  

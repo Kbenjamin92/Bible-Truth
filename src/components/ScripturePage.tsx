@@ -1,14 +1,14 @@
 import React from "react";
 import '../styles/DisplayContent.css'
-import { scripturePage } from "../content";
+import { dictionary } from "../dictionary";
 
-type DataFromAPI = {
+interface DataFromAPI {
     bibleReference: string;
     bibleVerse: any[];
     searchComponent: any;
 }
 
-const DisplayContent: React.FC<DataFromAPI> = ({ 
+ export const ScripturePage: React.FC<DataFromAPI> = ({ 
         bibleReference, 
         bibleVerse,
         searchComponent
@@ -26,7 +26,7 @@ const DisplayContent: React.FC<DataFromAPI> = ({
         <>
             { searchComponent }
             <section className="scripture-page-title-container">
-                <h1 className="scripture-page-title">{scripturePage}</h1>
+                <h1 className="scripture-page-title">{dictionary.SCRIPTURE_PAGE_TITLE}</h1>
                 <hr />
             </section>
             <section className="bible-verse-container">
@@ -35,5 +35,3 @@ const DisplayContent: React.FC<DataFromAPI> = ({
             </section>
         </>
 )};
-
-export default DisplayContent;

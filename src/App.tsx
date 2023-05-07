@@ -1,24 +1,24 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import Header from "./components/header/Header";
-import Main from "./components/Main";
-import DisplayContent from "./components/DisplayContent"
-import About from './components/About'
-import Contact from './components/Contact'
-import Search from './components/Search'
-import { userErrorMessage } from './content'
+import { Header } from "./components/Page Header/Header";
+import { Main } from "./components/Main";
+import { ScripturePage } from "./components/ScripturePage";
+import { About } from "./components/About";
+import { Contact } from "./components/Contact";
+import { Search } from "./components/Search";
 import axios from "axios";
 import { Routes, Route, useNavigate } from "react-router-dom";
+import { dictionary } from "./dictionary";
 
 const App = () => {
   const [userInput, setUserInput] = useState<string>("");
   const [bibleReference, setBibleReference] = useState<string>("");
   const [bibleVerse, setBibleVerse] = useState<any[]>([]);
-  const [badSearchReq, setBadSearchReq] = useState<string[]>([]);
+  const [badSearchReq, setBadSearchReq] = useState<string>("");
 
   let navigate = useNavigate();
-  let connectVerseString = userInput.split(' ').join('');
+  let connectVerseString = userInput.split(" ").join("");
 
   const getBibleData = async (userSearchTerm: string) => {
     let url = `https://bible-api.com/${userSearchTerm}`;
@@ -28,13 +28,13 @@ const App = () => {
       setBibleReference(res.reference);
       setBibleVerse(res.verses);
     } catch (error) {
-        if (error) {
-          navigate('/');
-          setBadSearchReq(userErrorMessage);
-        }
-     }
+      if (error) {
+        navigate("/");
+        setBadSearchReq(dictionary.USER_SEARCH_ERROR_MESSAGE);
+      }
+    }
   };
-  
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setUserInput(e.target.value);
   };
@@ -43,10 +43,10 @@ const App = () => {
     e.preventDefault();
     getBibleData(connectVerseString);
     setUserInput("");
-    navigate('/bible-results');
-    setBadSearchReq([]);
+    navigate("/bible-results");
+    setBadSearchReq("");
   };
-  
+
   return (
     <div className='App'>
       <Routes>
@@ -55,48 +55,54 @@ const App = () => {
           element={
             <div>
               <Header />
-              <Main searchComponent={
-                <Search 
-                  input={userInput}
-                  handleChange={handleChange}
-                  handleSubmit={handleSubmit}
-                  userErrorMessage={badSearchReq}
-                  />} 
-                />
+              <Main
+                searchComponent={
+                  <Search
+                    input={userInput}
+                    handleChange={handleChange}
+                    handleSubmit={handleSubmit}
+                    badSearchReq={badSearchReq}
+                  />
+                }
+              />
             </div>
           }></Route>
 
-        <Route path='/bible-results' element={
-          <div>
-            <Header />
-            <DisplayContent 
-              bibleReference={bibleReference} 
-              bibleVerse={bibleVerse}
-              searchComponent={
-                <Search 
-                  input={userInput}
-                  handleChange={handleChange}
-                  handleSubmit={handleSubmit}
-                  userErrorMessage={badSearchReq}
-                  />} 
+        <Route
+          path='/bible-results'
+          element={
+            <div>
+              <Header />
+              <ScripturePage
+                bibleReference={bibleReference}
+                bibleVerse={bibleVerse}
+                searchComponent={
+                  <Search
+                    input={userInput}
+                    handleChange={handleChange}
+                    handleSubmit={handleSubmit}
+                    badSearchReq={badSearchReq}
+                  />
+                }
               />
-          </div>
-        }>
-        </Route>
-        <Route path='/about' element={
-          <div>
-            <Header />
-            <About />
-          </div>
-        }>
-        </Route>
-        <Route path='/contact' element={
-          <div>
-            <Header />
-            <Contact />
-          </div>
-        }>
-        </Route>
+            </div>
+          }></Route>
+        <Route
+          path='/about'
+          element={
+            <div>
+              <Header />
+              <About />
+            </div>
+          }></Route>
+        <Route
+          path='/contact'
+          element={
+            <div>
+              <Header />
+              <Contact />
+            </div>
+          }></Route>
       </Routes>
     </div>
   );

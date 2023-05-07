@@ -1,15 +1,15 @@
 import React from "react";
 import '../../styles/Header.css'
-import { pageHeader } from '../../content';
+import { dictionary } from "../../dictionary";
 import { Link } from 'react-router-dom';
 
-type NavigationInput = {
+interface NavigationInput {
   toggleHamburger: () => void;
   checkToggle: boolean;
   closeDropDown: () => void;
 }
 
-const Navigation: React.FC<NavigationInput> = ({ 
+export const Navigation: React.FC<NavigationInput> = ({ 
     toggleHamburger, 
     checkToggle,
     closeDropDown,
@@ -21,10 +21,10 @@ const Navigation: React.FC<NavigationInput> = ({
     <div className={navLinks}> 
        <ul className="open-nav-list-container">
           <Link to="/about" className="open-nav-item" onClick={closeDropDown}>
-            <li>About</li>
+            <li>{dictionary.ABOUT_PAGE_TITLE}</li>
           </Link>
           <Link to="/contact" className="open-nav-item" onClick={closeDropDown}>
-            <li>Contact</li>
+            <li>{dictionary.CONTACT_PAGE_TITLE}</li>
           </Link>
         </ul>
     </div>
@@ -33,7 +33,7 @@ const Navigation: React.FC<NavigationInput> = ({
       <div  className="header-container">
         <div>
           <Link to='/' className="header-content">
-            <h1>{pageHeader}</h1>
+            <h1>{dictionary.PAGE_TITLE}</h1>
           </Link>
         </div>
         <button className="hamburger-container" onClick={() => toggleHamburger()}>
@@ -46,5 +46,3 @@ const Navigation: React.FC<NavigationInput> = ({
         {openHamburgerMenu}
       </div>
   )};
-
-export default Navigation;
