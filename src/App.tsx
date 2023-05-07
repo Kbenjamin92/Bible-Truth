@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import { Header } from "./components/Page Header/Header";
-import { Main } from "./components/Main";
-import { ScripturePage } from "./components/ScripturePage";
+import { Header } from "./components/PageHeader/Header";
+import { MainPage } from "./components/MainPage/MainPage";
+import { ScripturePage } from "./components/ScripturePage/ScripturePage";
 import { About } from "./components/About";
 import { Contact } from "./components/Contact";
-import { Search } from "./components/Search";
+import { Search } from "./components/Search/Search";
 import axios from "axios";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { dictionary } from "./dictionary";
 
-const App = () => {
+export const App = () => {
   const [userInput, setUserInput] = useState<string>("");
   const [bibleReference, setBibleReference] = useState<string>("");
   const [bibleVerse, setBibleVerse] = useState<any[]>([]);
@@ -55,7 +55,7 @@ const App = () => {
           element={
             <div>
               <Header />
-              <Main
+              <MainPage
                 searchComponent={
                   <Search
                     input={userInput}
@@ -107,5 +107,3 @@ const App = () => {
     </div>
   );
 };
-
-export default App;
