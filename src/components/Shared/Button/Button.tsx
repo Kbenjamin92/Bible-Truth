@@ -1,4 +1,5 @@
 import React from "react";
+import { useButtonStyles } from './useButtonStyles';
 
 interface ButtonProps {
     onClick?: () => void;
@@ -6,9 +7,10 @@ interface ButtonProps {
 }
 
 export const Button: React.FC<ButtonProps> = ({ onClick, children }) => {
+  const classes = useButtonStyles();
   return (
     <>
-      <button onClick={onClick}>
+      <button onClick={onClick} className={classes.searchBtn}>
         {children}
       </button>
     </>
