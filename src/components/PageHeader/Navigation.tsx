@@ -1,7 +1,7 @@
 import React from "react";
-import '../../styles/Header.css'
 import { dictionary } from "../../dictionary";
 import { Link } from 'react-router-dom';
+import { useNavigationStyles } from "./useNavigationStyles";
 
 interface NavigationInput {
   toggleHamburger: () => void;
@@ -15,32 +15,34 @@ export const Navigation: React.FC<NavigationInput> = ({
     closeDropDown,
      }) => {
 
-  let navLinks = checkToggle ? 'open-hamburger-container ' : 'close-hamburger-container';
+  const classes = useNavigationStyles();
+
+  let navLinks = checkToggle ? classes.openHamburgerContainer : classes.closeHamburgerContainer;
 
   const openHamburgerMenu: JSX.Element = (
     <div className={navLinks}> 
        <ul className="open-nav-list-container">
-          <Link to="/about" className="open-nav-item" onClick={closeDropDown}>
+          <Link to="/about" className={classes.openNavItem} onClick={closeDropDown}>
             <li>{dictionary.ABOUT_PAGE_TITLE}</li>
           </Link>
-          <Link to="/contact" className="open-nav-item" onClick={closeDropDown}>
+          <Link to="/contact" className={classes.openNavItem} onClick={closeDropDown}>
             <li>{dictionary.CONTACT_PAGE_TITLE}</li>
           </Link>
         </ul>
     </div>
   );
   return (
-      <div  className="header-container">
+      <div  className={classes.headerContainer}>
         <div>
-          <Link to='/' className="header-content">
+          <Link to='/' className={classes.headerContent}>
             <h1>{dictionary.PAGE_TITLE}</h1>
           </Link>
         </div>
-        <button className="hamburger-container" onClick={() => toggleHamburger()}>
+        <button className={classes.hamburgerContainer} onClick={() => toggleHamburger()}>
           <div className="hamburger-child">
-            <div className="hamburger-border borderOne"></div>
-            <div className="hamburger-border borderTwo"></div>
-            <div className="hamburger-border borderThree"></div>
+            <div className={classes.hamburgerBorder}></div>
+            <div className={classes.hamburgerBorder}></div>
+            <div className={classes.hamburgerBorder}></div>
           </div>
         </button>
         {openHamburgerMenu}
