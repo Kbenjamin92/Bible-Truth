@@ -2,6 +2,7 @@ import React from "react";
 import Form from "react-bootstrap/Form";
 import { dictionary } from "../../dictionary";
 import { useSearchStyles } from "./useSearchStyles";
+import { Button } from "../Shared/Button/Button";
 
 interface UserInput {
   input: string;
@@ -33,9 +34,9 @@ export const Search: React.FC<UserInput> = ({
               value={input}
               required
             />
-            <button className={classes.searchBtn}>
+            <Button>
               {dictionary.SEARCH_BUTTON_TEXT}
-            </button>
+            </Button>
           </div>
           <div className={classes.subText}>
             <p className={classes.errorMessage}>{badSearchReq}</p>
