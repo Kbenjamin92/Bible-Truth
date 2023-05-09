@@ -2,6 +2,7 @@ import React from "react";
 import { dictionary } from "../../dictionary";
 import { Link } from 'react-router-dom';
 import { useNavigationStyles } from "./useNavigationStyles";
+// import { styled, keyframes } from 'styled-components';
 interface NavigationInput {
   toggleHamburger: () => void;
   checkToggle: boolean;
@@ -15,6 +16,24 @@ export const Navigation: React.FC<NavigationInput> = ({
      }) => {
 
   const classes = useNavigationStyles();
+
+//   const rotate = keyframes `
+//   from {
+//     transition: 1s;
+//     left: 5;
+//   }
+
+//   to {
+//     transition: 1s;
+//   }
+// `;
+
+//   const Rotate = styled.div`
+//     // display: inline-block;
+//     // animation: ${rotate} 2s linear;
+//     transform: translate3d(-240px, 0, 0)
+//     transition: transform 0.35s
+//   `;
 
   let navLinks = checkToggle ? classes.openHamburgerContainer : classes.closeHamburgerContainer;
   return (
@@ -31,6 +50,7 @@ export const Navigation: React.FC<NavigationInput> = ({
             <div className={classes.hamburgerBorder}></div>
           </div>
         </button>
+        {/* add sliding menu animation  */}
         <div className={navLinks}> 
           <ul className="open-nav-list-container">
             <Link to="/about" className={classes.openNavItem} onClick={closeDropDown}>

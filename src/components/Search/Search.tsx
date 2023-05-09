@@ -29,7 +29,7 @@ export const Search: React.FC<UserInput> = ({
               name='input'
               type='text'
               className={classes.searchInputField}
-              placeholder='Search Scriptures...'
+              placeholder={dictionary.SCRIPTURE_SEARCH}
               onChange={handleChange}
               value={input}
               required

@@ -9,5 +9,6 @@ export const dictionary = {
     SEARCH_BUTTON_TEXT: "Search",
     USER_SEARCH_ERROR_MESSAGE: 'Invalid Search Term.',
 // Scripture Page
-    SCRIPTURE_PAGE_TITLE: 'Learn about God'
+    SCRIPTURE_PAGE_TITLE: 'Learn about God',
+    SCRIPTURE_SEARCH: 'Scripture Search...'
 };

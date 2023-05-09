@@ -45,17 +45,15 @@ export const ScripturePage: React.FC<DataFromAPI> = ({
         </h1>
       </section>
       <section className={classes.bibleVerseContainer}>
-        <Like className={classes.heart} />
         {
-          isLoading ? 
+        isLoading ? 
           <Rotate>
             <ImSpinner9 size={'30'}/>
           </Rotate>
-          : null
-        }
-        {
+          :
         bibleVerse.map((item, keys) => (
           <div key={keys}>
+            <Like className={classes.heart} />
             <p className={classes.bibleText}>
               <span className={classes.bibleVerseNumber}>{item.verse}</span> {item.text}
             </p>
