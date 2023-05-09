@@ -57,7 +57,10 @@ export const useNavigationStyles = createUseStyles({
         }
     },
     navListContainer: {
-        display: 'none',
+        display: 'flex',
+        '@media only screen and (max-width: 768px)': {
+            display: 'none',
+        }
     },
     openNavItem: {
         color: 'white',

@@ -10,14 +10,13 @@ export const Header = () => {
   const closeDropDown = () => {
     setIsOpen(false);
   }
-
   return (
     <>
-        <Navigation 
-          toggleHamburger={toggleHamburger} 
-          checkToggle={isOpen}
-          closeDropDown={closeDropDown}
-        />
+      <Navigation 
+        toggleHamburger={toggleHamburger} 
+        checkToggle={isOpen}
+        closeDropDown={closeDropDown}
+      />
     </>
 )};
  

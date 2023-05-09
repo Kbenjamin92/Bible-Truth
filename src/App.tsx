@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import { Header } from "./components/PageHeader/Header";
@@ -16,32 +16,37 @@ export const App = () => {
   const [bibleReference, setBibleReference] = useState<string>("");
   const [bibleVerse, setBibleVerse] = useState<any[]>([]);
   const [badSearchReq, setBadSearchReq] = useState<string>("");
+  const [searchBibleApi, setSearchBibleApi] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   let navigate = useNavigate();
   let connectVerseString = userInput.split(" ").join("");
 
-  const getBibleData = async (userSearchTerm: string) => {
-    let url = `https://bible-api.com/${userSearchTerm}`;
-    try {
-      const req = await axios.get(url);
-      const res = req.data;
-      setBibleReference(res.reference);
-      setBibleVerse(res.verses);
-    } catch (error) {
-      if (error) {
-        navigate("/");
-        setBadSearchReq(dictionary.USER_SEARCH_ERROR_MESSAGE);
-      }
-    }
-  };
+  useEffect(() => {
+    (async(userSearchTerm: string) => {
+      let url = `https://bible-api.com/${userSearchTerm}`;
+      if (searchBibleApi) {
+        setIsLoading(false);
+        try {
+          const req = await axios.get(url);
+          const res = req.data;
+          setBibleReference(res.reference);
+          setBibleVerse(res.verses);
+        } catch (error) {
+          if (error) {
+            navigate("/");
+            setBadSearchReq(dictionary.USER_SEARCH_ERROR_MESSAGE);
+          }
+        }
+      } else { setIsLoading(true) }
+    })(searchBibleApi);
+  }, [searchBibleApi, navigate]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setUserInput(e.target.value);
-  };
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => setUserInput(e.target.value);
 
   const handleSubmit = (e: React.FormEvent<HTMLElement>) => {
     e.preventDefault();
-    getBibleData(connectVerseString);
+    setSearchBibleApi(connectVerseString);
     setUserInput("");
     navigate("/bible-results");
     setBadSearchReq("");
@@ -76,6 +81,7 @@ export const App = () => {
               <ScripturePage
                 bibleReference={bibleReference}
                 bibleVerse={bibleVerse}
+                isLoading={isLoading}
                 searchComponent={
                   <Search
                     input={userInput}

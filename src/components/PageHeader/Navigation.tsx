@@ -2,7 +2,6 @@ import React from "react";
 import { dictionary } from "../../dictionary";
 import { Link } from 'react-router-dom';
 import { useNavigationStyles } from "./useNavigationStyles";
-
 interface NavigationInput {
   toggleHamburger: () => void;
   checkToggle: boolean;
@@ -18,19 +17,6 @@ export const Navigation: React.FC<NavigationInput> = ({
   const classes = useNavigationStyles();
 
   let navLinks = checkToggle ? classes.openHamburgerContainer : classes.closeHamburgerContainer;
-
-  const openHamburgerMenu: JSX.Element = (
-    <div className={navLinks}> 
-       <ul className="open-nav-list-container">
-          <Link to="/about" className={classes.openNavItem} onClick={closeDropDown}>
-            <li>{dictionary.ABOUT_PAGE_TITLE}</li>
-          </Link>
-          <Link to="/contact" className={classes.openNavItem} onClick={closeDropDown}>
-            <li>{dictionary.CONTACT_PAGE_TITLE}</li>
-          </Link>
-        </ul>
-    </div>
-  );
   return (
       <div  className={classes.headerContainer}>
         <div>
@@ -45,6 +31,23 @@ export const Navigation: React.FC<NavigationInput> = ({
             <div className={classes.hamburgerBorder}></div>
           </div>
         </button>
-        {openHamburgerMenu}
+        <div className={navLinks}> 
+          <ul className="open-nav-list-container">
+            <Link to="/about" className={classes.openNavItem} onClick={closeDropDown}>
+              <li>{dictionary.ABOUT_PAGE_TITLE}</li>
+            </Link>
+            <Link to="/contact" className={classes.openNavItem} onClick={closeDropDown}>
+              <li>{dictionary.LOG_IN_PAGE_TITLE}</li>
+            </Link>
+            </ul>
+        </div>
+        <div className={classes.navListContainer}>
+          <Link to="/about" className={classes.openNavItem} onClick={closeDropDown}>
+            <li>{dictionary.ABOUT_PAGE_TITLE}</li>
+          </Link>
+          <Link to="/contact" className={classes.openNavItem} onClick={closeDropDown}>
+            <li>{dictionary.LOG_IN_PAGE_TITLE}</li>
+          </Link>
+        </div>
       </div>
   )};

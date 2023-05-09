@@ -6,26 +6,30 @@ export const useScripturePageStyles = createUseStyles({
         borderRadius: '5px',
         margin: '2rem 2rem',
         padding: '1rem 1rem',
-        boxShadow: '0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23)',
+        boxShadow: '0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.10)',
         '&:hover:': {
             border: 'solid 1px transparent',
             borderRadius: '5px',
             margin: '2rem 2rem,',
             padding: '1rem 1rem',
-            boxShadow: '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)',
           }
       },
       bibleText: {
           textAlign: 'start',
       },
       bibleVerseNumber: {
-        color: 'rgb(107, 107, 107)',
+        color: '#a6a6a6',
       },
       scripturePageTitleContainer: {
-        margin: '3rem',
+        margin: '2rem',
       },
       scripturePageTitle: {
         fontWeight: 'bold',
         fontSize: '2.2rem',
+        borderBottom: '0.09rem solid #d8d8d8',
+        paddingBottom: '0.7rem'
+      },
+      heart: {
+        width: '1rem',
       }
 });
