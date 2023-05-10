@@ -5,7 +5,7 @@ import { Header } from "./components/PageHeader/Header";
 import { MainPage } from "./components/MainPage/MainPage";
 import { ScripturePage } from "./components/ScripturePage/ScripturePage";
 import { About } from "./components/About";
-import { Contact } from "./components/Contact";
+import { Login } from "./components/Login";
 import { Search } from "./components/Search/Search";
 import axios from "axios";
 import { Routes, Route, useNavigate } from "react-router-dom";
@@ -106,7 +106,7 @@ export const App = () => {
           element={
             <div>
               <Header />
-              <Contact />
+              <Login />
             </div>
           }></Route>
       </Routes>

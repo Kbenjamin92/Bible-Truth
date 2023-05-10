@@ -31,5 +31,6 @@ export const useScripturePageStyles = createUseStyles({
       },
       heart: {
         width: '1rem',
+        'cursor': 'pointer',
       }
 });
