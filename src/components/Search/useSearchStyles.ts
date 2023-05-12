@@ -5,8 +5,6 @@ export const useSearchStyles = createUseStyles({
     height: "25vh",
     backgroundColor: "#f8f8f8",
     padding: "1rem 2rem 0 2rem",
-    // position: "absolute",
-    // zIndex: "-2",
   },
   searchOperation: {
     display: "flex",

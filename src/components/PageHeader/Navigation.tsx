@@ -3,7 +3,7 @@ import { dictionary } from "../../dictionary";
 import { Link } from "react-router-dom";
 import { useNavigationStyles } from "./useNavigationStyles";
 import { FaBible } from "react-icons/fa";
-// import { styled, keyframes } from 'styled-components';
+import { styled, keyframes } from "styled-components";
 interface NavigationInput {
   toggleHamburger: () => void;
   checkToggle: boolean;
@@ -17,23 +17,28 @@ export const Navigation: React.FC<NavigationInput> = ({
 }) => {
   const classes = useNavigationStyles();
 
-  //   const rotate = keyframes `
-  //   from {
-  //     transition: 1s;
-  //     left: 5;
-  //   }
+  const slideMenuRight = keyframes`
+    0% {
+      transform: translateX(1rem);
+    }
+    100% {
+      transform: translateX(5rem);
+    }
+    
+  `;
 
-  //   to {
-  //     transition: 1s;
-  //   }
-  // `;
+  const slideMenuLeft = keyframes`
+    0% {
+      transform: translateX(5rem);
+    }
+    100% {
+      transform: translateX(0rem);
+    }
+  `;
 
-  //   const Rotate = styled.div`
-  //     // display: inline-block;
-  //     // animation: ${rotate} 2s linear;
-  //     transform: translate3d(-240px, 0, 0)
-  //     transition: transform 0.35s
-  //   `;
+  const SlideMenu = styled.div`
+    animation: ${slideMenuLeft} 0.3s linear;
+  `;
 
   let navLinks = checkToggle
     ? classes.openHamburgerContainer
@@ -42,7 +47,9 @@ export const Navigation: React.FC<NavigationInput> = ({
     <div className={classes.headerContainer}>
       <div>
         <Link to='/' className={classes.headerContent}>
-          <FaBible color='white' size={20} className={classes.bibleIcon} />
+          <span>
+            <FaBible color='white' size={20} className={classes.bibleIcon} />
+          </span>
           <h2 className={classes.navTitle}>{dictionary.PAGE_TITLE}</h2>
         </Link>
       </div>
@@ -56,8 +63,8 @@ export const Navigation: React.FC<NavigationInput> = ({
         </div>
       </button>
       {/* add sliding menu animation  */}
-      <div className={navLinks}>
-        <ul className='open-nav-list-container'>
+      <SlideMenu className={navLinks}>
+        <ul className={classes.openNavContainer}>
           <Link
             to='/about'
             className={classes.openNavItem}
@@ -71,7 +78,7 @@ export const Navigation: React.FC<NavigationInput> = ({
             <li>{dictionary.LOG_IN_PAGE_TITLE}</li>
           </Link>
         </ul>
-      </div>
+      </SlideMenu>
       <div className={classes.navListContainer}>
         <Link
           to='/about'

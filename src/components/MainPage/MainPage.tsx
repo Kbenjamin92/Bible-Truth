@@ -13,32 +13,33 @@ export const MainPage: React.FC<SearchType> = ({ searchComponent }) => {
 
   const bounce = keyframes`
   0% {
-    transform: translateY(-20px);
+    transform: translateY(-5rem);
   }
   25% {
-    transform: translateY(0);
+    transform: translateY(-4rem);
   }
   50% {
-    transform: translateY(-20px);
+    transform: translateY(-5rem);
   }
   75% {
-    transform: translateY(0);
+    transform: translateY(-4rem);
   }
   100% {
-    transform: translateY(-20px);
+    transform: translateY(-5rem);
   }
 `;
 
   const Bounce = styled.div`
     display: inline-block;
     animation: ${bounce} 7s linear infinite;
-    // position: absolute;
+    position: absolute;
     right: 1px;
     z-index: -1;
   `;
 
   return (
     <div className={classes.container}>
+      {searchComponent}
       <div className={classes.headerDisplayContainer}>
         <section className={classes.headerTitleContainer}>
           <h1 className={classes.headerTitle}>{dictionary.HEADER_TITLE}</h1>
@@ -49,7 +50,6 @@ export const MainPage: React.FC<SearchType> = ({ searchComponent }) => {
           </Bounce>
         </section>
       </div>
-      {searchComponent}
     </div>
   );
 };

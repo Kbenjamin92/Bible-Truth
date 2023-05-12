@@ -36,12 +36,11 @@ export const useNavigationStyles = createUseStyles({
     },
   },
   navTitle: {
-    marginLeft: "2rem",
+    display: "inline-block",
+    marginLeft: "0.313rem",
   },
   bibleIcon: {
-    position: "absolute",
-    top: "20px",
-    right: "21rem",
+    display: "inline-block",
   },
   hamburgerContainer: {
     backgroundColor: "transparent",
@@ -64,6 +63,10 @@ export const useNavigationStyles = createUseStyles({
       display: "none",
     },
   },
+  openNavContainer: {
+    display: "flex",
+    flexDirection: "column",
+  },
   navListContainer: {
     display: "flex",
     "@media only screen and (max-width: 768px)": {
@@ -80,7 +83,7 @@ export const useNavigationStyles = createUseStyles({
       listStyle: "none",
       textDecoration: "none",
       borderRadius: "5px",
-      textDecorationLine: "underline",
+      backgroundColor: "#191919",
     },
     "&:active": {
       transform: "scale(0.9)",
@@ -104,9 +107,8 @@ export const useNavigationStyles = createUseStyles({
     boxShadow: "0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)",
     border: "1px solid #000",
     backgroundColor: "#000",
-    height: "22vh",
-    animation: "openHamburger",
-    animationDuration: "0.5s",
+    height: "12vh",
+
     //     '@media only screen and (min-width: 200px) and (max-width: 768px)': {
     //         position: 'relative',
     //         cursor: 'pointer',
@@ -119,16 +121,15 @@ export const useNavigationStyles = createUseStyles({
   },
   closeHamburgerContainer: {
     display: "none",
+    right: "-7rem",
     position: "absolute",
-    top: "70px",
+    top: "4.125rem",
     paddingRight: "25px",
     borderRadius: "5px",
     boxShadow: "0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22)",
     border: "1px solid #000",
     backgroundColor: "#000",
     height: "22vh",
-    animation: "closeHamburger",
-    animationDuration: "0.5s",
     //     '@media only screen and (min-width: 200px) and (max-width: 768px)': {
     //         transform: 'translate(40%)',
     //         transitionProperty: 'transform',
