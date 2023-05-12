@@ -2,7 +2,7 @@ import { createUseStyles } from "react-jss";
 
 export const useButtonStyles = createUseStyles({
   searchBtn: {
-    backgroundColor: "gold",
+    backgroundColor: "#FFC107",
     color: "#000",
     border: "1px solid transparent",
     borderRadius: "5px",

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { useNavigationStyles } from "./useNavigationStyles";
 import { FaBible } from "react-icons/fa";
 import { styled, keyframes } from "styled-components";
+import { RxSlash } from "react-icons/rx";
 interface NavigationInput {
   toggleHamburger: () => void;
   checkToggle: boolean;
@@ -86,6 +87,10 @@ export const Navigation: React.FC<NavigationInput> = ({
           onClick={closeDropDown}>
           <li>{dictionary.ABOUT_PAGE_TITLE}</li>
         </Link>
+        <span className={classes.slash}>
+          <RxSlash color={"white"}></RxSlash>
+        </span>
+
         <Link
           to='/contact'
           className={classes.openNavItem}

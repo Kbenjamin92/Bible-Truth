@@ -12,4 +12,11 @@ export const dictionary = {
   // Scripture Page
   SCRIPTURE_PAGE_TITLE: "Learn about God",
   SCRIPTURE_SEARCH: "Scripture Search...",
+  // Main Page
+  DROPDOWN_TITLE: "How are you feeling?",
+  DROPDOWN_ITEM_ONE: "Depressed",
+  DROPDOWN_ITEM_TWO: "Anxious",
+  DROPDOWN_ITEM_THREE: "Worried",
+  DROPDOWN_ITEM_FOUR: "Afraid",
+  DROPDOWN_ITEM_FIVE: "Confused",
 };

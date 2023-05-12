@@ -7,6 +7,7 @@ import { ScripturePage } from "./components/ScripturePage/ScripturePage";
 import { About } from "./components/About";
 import { Login } from "./components/Login";
 import { Search } from "./components/Search/Search";
+import { DropdownComponent } from "./components/Shared/Dropdown/DropdownComponent";
 import axios from "axios";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { dictionary } from "./dictionary";
@@ -23,7 +24,7 @@ export const App = () => {
   let connectVerseString = userInput.split(" ").join("");
 
   useEffect(() => {
-    (async(userSearchTerm: string) => {
+    (async (userSearchTerm: string) => {
       let url = `https://bible-api.com/${userSearchTerm}`;
       if (searchBibleApi) {
         setIsLoading(false);
@@ -38,11 +39,14 @@ export const App = () => {
             setBadSearchReq(dictionary.USER_SEARCH_ERROR_MESSAGE);
           }
         }
-      } else { setIsLoading(true) }
+      } else {
+        setIsLoading(true);
+      }
     })(searchBibleApi);
   }, [searchBibleApi, navigate]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => setUserInput(e.target.value);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setUserInput(e.target.value);
 
   const handleSubmit = (e: React.FormEvent<HTMLElement>) => {
     e.preventDefault();
@@ -70,6 +74,7 @@ export const App = () => {
                   />
                 }
               />
+              <DropdownComponent />
             </div>
           }></Route>
 
