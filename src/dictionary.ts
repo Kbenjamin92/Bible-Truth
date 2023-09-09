@@ -19,4 +19,9 @@ export const dictionary = {
   DROPDOWN_ITEM_THREE: "Worried",
   DROPDOWN_ITEM_FOUR: "Afraid",
   DROPDOWN_ITEM_FIVE: "Confused",
+  // Login Page
+  USERNAME: "Username...",
+  PASSWORD: "Password...",
+  LOGIN: "Login",
+  LOGIN_TITLE: "Login",
 };

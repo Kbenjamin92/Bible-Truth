@@ -73,7 +73,7 @@ export const Navigation: React.FC<NavigationInput> = ({
             <li>{dictionary.ABOUT_PAGE_TITLE}</li>
           </Link>
           <Link
-            to='/contact'
+            to='/login'
             className={classes.openNavItem}
             onClick={closeDropDown}>
             <li>{dictionary.LOG_IN_PAGE_TITLE}</li>
@@ -92,7 +92,7 @@ export const Navigation: React.FC<NavigationInput> = ({
         </span>
 
         <Link
-          to='/contact'
+          to='/login'
           className={classes.openNavItem}
           onClick={closeDropDown}>
           <li>{dictionary.LOG_IN_PAGE_TITLE}</li>

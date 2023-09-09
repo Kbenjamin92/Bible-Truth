@@ -6,23 +6,22 @@ import { Button } from "../Shared/Button/Button";
 
 interface UserInput {
   input: string;
-  handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  handleSubmit: (e: React.FormEvent<HTMLElement>) => void;
+  handleSearchChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleSearchSubmit: (e: React.FormEvent<HTMLElement>) => void;
   badSearchReq: string;
 }
 
 export const Search: React.FC<UserInput> = ({
   input,
-  handleChange,
-  handleSubmit,
+  handleSearchChange,
+  handleSearchSubmit,
   badSearchReq,
 }) => {
-
   const classes = useSearchStyles();
-  
+
   return (
     <div>
-      <Form className={classes.formContainer} onSubmit={handleSubmit}>
+      <Form className={classes.formContainer} onSubmit={handleSearchSubmit}>
         <Form.Group className='mb-3' controlId='formBasicEmail'>
           <div className={classes.searchOperation}>
             <Form.Control
@@ -30,13 +29,11 @@ export const Search: React.FC<UserInput> = ({
               type='text'
               className={classes.searchInputField}
               placeholder={dictionary.SCRIPTURE_SEARCH}
-              onChange={handleChange}
+              onChange={handleSearchChange}
               value={input}
               required
             />
-            <Button>
-              {dictionary.SEARCH_BUTTON_TEXT}
-            </Button>
+            <Button>{dictionary.SEARCH_BUTTON_TEXT}</Button>
           </div>
           <div className={classes.subText}>
             <p className={classes.errorMessage}>{badSearchReq}</p>

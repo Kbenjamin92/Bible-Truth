@@ -5,7 +5,7 @@ import { Header } from "./components/PageHeader/Header";
 import { MainPage } from "./components/MainPage/MainPage";
 import { ScripturePage } from "./components/ScripturePage/ScripturePage";
 import { About } from "./components/About";
-import { Login } from "./components/Login";
+import { Login } from "./components/Login/Login";
 import { Search } from "./components/Search/Search";
 import { DropdownComponent } from "./components/Shared/Dropdown/DropdownComponent";
 import axios from "axios";
@@ -19,6 +19,8 @@ export const App = () => {
   const [badSearchReq, setBadSearchReq] = useState<string>("");
   const [searchBibleApi, setSearchBibleApi] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [username, setUsername] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
 
   let navigate = useNavigate();
   let connectVerseString = userInput.split(" ").join("");
@@ -45,15 +47,27 @@ export const App = () => {
     })(searchBibleApi);
   }, [searchBibleApi, navigate]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setUserInput(e.target.value);
 
-  const handleSubmit = (e: React.FormEvent<HTMLElement>) => {
+  const handleSearchSubmit = (e: React.FormEvent<HTMLElement>) => {
     e.preventDefault();
     setSearchBibleApi(connectVerseString);
     setUserInput("");
     navigate("/bible-results");
     setBadSearchReq("");
+  };
+
+  const handleUsernameChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setUsername(e.target.value);
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+    setPassword(e.target.value);
+
+  const handleLoginSubmit = (e: React.FormEvent<HTMLElement>) => {
+    e.preventDefault();
+    console.log(username, password);
+    setUsername("");
+    setPassword("");
   };
 
   return (
@@ -68,8 +82,8 @@ export const App = () => {
                 searchComponent={
                   <Search
                     input={userInput}
-                    handleChange={handleChange}
-                    handleSubmit={handleSubmit}
+                    handleSearchChange={handleSearchChange}
+                    handleSearchSubmit={handleSearchSubmit}
                     badSearchReq={badSearchReq}
                   />
                 }
@@ -90,8 +104,8 @@ export const App = () => {
                 searchComponent={
                   <Search
                     input={userInput}
-                    handleChange={handleChange}
-                    handleSubmit={handleSubmit}
+                    handleSearchChange={handleSearchChange}
+                    handleSearchSubmit={handleSearchSubmit}
                     badSearchReq={badSearchReq}
                   />
                 }
@@ -107,11 +121,17 @@ export const App = () => {
             </div>
           }></Route>
         <Route
-          path='/contact'
+          path='/login'
           element={
             <div>
               <Header />
-              <Login />
+              <Login
+                username={username}
+                password={password}
+                handleUsernameChange={handleUsernameChange}
+                handlePasswordChange={handlePasswordChange}
+                handleLoginSubmit={handleLoginSubmit}
+              />
             </div>
           }></Route>
       </Routes>
